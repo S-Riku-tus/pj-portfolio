@@ -6,11 +6,11 @@ import WorksSection from '@/components/WorksSection'
 
 export default function Home() {
   return (
-    <div className="pt-16">
+    <div>
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
       <SkillsSection />
+      <ExperienceSection />
       <WorksSection />
     </div>
   )
