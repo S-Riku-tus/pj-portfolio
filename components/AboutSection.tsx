@@ -1,6 +1,6 @@
 'use client'
 
-import { Code, Palette, Users, Zap, Heart, Star, Target, Lightbulb } from 'lucide-react'
+import { Code, Palette, Users, Zap, Heart, Star, Target, Lightbulb, CheckCircle, ArrowRight } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
 const AboutSection = () => {
@@ -24,182 +24,204 @@ const AboutSection = () => {
     return () => observer.disconnect()
   }, [])
 
-  const features = [
+  const services = [
     {
-      icon: <Code className="w-8 h-8 text-primary-600" />,
+      icon: <Code className="w-6 h-6 text-gray-700" />,
+      title: "ディレクション",
+      description: "お客様の要望をヒアリングし、最適なソリューションを提案します。",
+      features: ["要件定義", "技術選定", "スケジュール管理"]
+    },
+    {
+      icon: <Palette className="w-6 h-6 text-gray-700" />,
+      title: "デザイン",
+      description: "ユーザビリティを重視した美しく機能的なデザインを制作します。",
+      features: ["UI/UXデザイン", "プロトタイピング", "ブランディング"]
+    },
+    {
+      icon: <Users className="w-6 h-6 text-gray-700" />,
       title: "フロントエンド開発",
-      description: "React, Next.js, TypeScriptを使用したモダンなWebアプリケーション開発",
-      gradient: "from-blue-500 to-primary-600"
+      description: "最新技術を使用した高品質なフロントエンド開発を行います。",
+      features: ["React/Next.js", "TypeScript", "レスポンシブ対応"]
     },
     {
-      icon: <Palette className="w-8 h-8 text-purple-600" />,
-      title: "UI/UXデザイン",
-      description: "ユーザビリティを重視した直感的で美しいインターフェース設計",
-      gradient: "from-purple-500 to-pink-600"
-    },
-    {
-      icon: <Users className="w-8 h-8 text-green-600" />,
-      title: "チーム開発",
-      description: "アジャイル開発手法でのチームワークとコミュニケーション",
-      gradient: "from-green-500 to-emerald-600"
-    },
-    {
-      icon: <Zap className="w-8 h-8 text-yellow-600" />,
-      title: "パフォーマンス最適化",
-      description: "高速で軽量なWebアプリケーションの実現",
-      gradient: "from-yellow-500 to-orange-600"
-    }
-  ]
-
-  const values = [
-    {
-      icon: <Heart className="w-6 h-6 text-red-500" />,
-      title: "ユーザー第一",
-      description: "常にユーザーの立場に立って考える"
-    },
-    {
-      icon: <Star className="w-6 h-6 text-amber-500" />,
-      title: "品質へのこだわり",
-      description: "細部まで妥協しない完璧な仕上がり"
-    },
-    {
-      icon: <Target className="w-6 h-6 text-blue-500" />,
-      title: "目標達成",
-      description: "チーム目標の確実な達成"
-    },
-    {
-      icon: <Lightbulb className="w-6 h-6 text-green-500" />,
-      title: "継続的学習",
-      description: "新しい技術への挑戦と成長"
+      icon: <Zap className="w-6 h-6 text-gray-700" />,
+      title: "サポート・保守",
+      description: "リリース後も継続的なサポートと改善を提供します。",
+      features: ["運用保守", "機能改善", "パフォーマンス最適化"]
     }
   ]
 
   const techStack = [
-    { name: 'React', level: 95, color: 'bg-blue-500' },
-    { name: 'Next.js', level: 90, color: 'bg-gray-800' },
+    { name: 'React', level: 95, color: 'bg-accent' },
+    { name: 'Next.js', level: 90, color: 'bg-gray-700' },
     { name: 'TypeScript', level: 85, color: 'bg-blue-600' },
+    { name: 'Tailwind CSS', level: 92, color: 'bg-cyan-500' },
     { name: 'Figma', level: 88, color: 'bg-purple-500' },
-    { name: 'Node.js', level: 80, color: 'bg-green-600' },
-    { name: 'Tailwind CSS', level: 92, color: 'bg-cyan-500' }
+    { name: 'Node.js', level: 80, color: 'bg-green-600' }
+  ]
+
+  const values = [
+    "ユーザー体験を最優先に考える",
+    "シンプルで分かりやすい設計",
+    "持続可能で保守性の高いコード",
+    "チームワークを大切にする",
+    "継続的な学習と改善"
   ]
 
   return (
-    <section ref={sectionRef} id="about" className="section-padding bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-pink-200/30 to-orange-200/30 rounded-full blur-3xl"></div>
-      </div>
-
+    <section ref={sectionRef} id="about" className="section-padding bg-gray-50 relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 bg-grid opacity-20"></div>
+      
       <div className="container-custom mx-auto relative z-10">
+        {/* Section Header */}
         <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <h2 className="section-title">
-            <span className="gradient-text">自己紹介</span>
+          <h2 className="section-title mb-6">
+            私について
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
-          <p className="section-subtitle">
-            ユーザー体験を最優先に、技術とデザインの力で価値を創造します
-          </p>
+          <div className="w-16 h-px bg-gray-300 mx-auto mb-8"></div>
+          <div className="container-text">
+            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              フロントエンドエンジニア・デザイナーとして、<br />
+              ユーザーにとって価値のあるプロダクトを創造することを使命としています。
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              技術的な実装スキルだけでなく、ビジネス視点とユーザー視点を持ち合わせ、
+              お客様の課題解決に向けて最適なソリューションを提供します。
+            </p>
+          </div>
         </div>
-        
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-          <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
-            <div className="glass-card p-8 mb-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                ユーザー体験を重視した開発
-              </h3>
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                フロントエンドエンジニア・デザイナーとして、ユーザーにとって使いやすく、
-                美しいWebアプリケーションの開発に取り組んでいます。
-              </p>
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                技術的な実装だけでなく、ユーザビリティやアクセシビリティを考慮した
-                設計を心がけ、ビジネス価値の最大化を目指しています。
-              </p>
-              
-              {/* Tech Stack Progress */}
-              <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">スキルレベル</h4>
-                {techStack.map((tech, index) => (
-                  <div key={tech.name} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700">{tech.name}</span>
-                      <span className="text-sm text-gray-500">{tech.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        className={`h-2 rounded-full ${tech.color} transition-all duration-1000 delay-${index * 100}`}
-                        style={{ width: isVisible ? `${tech.level}%` : '0%' }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Values */}
-            <div className="grid grid-cols-2 gap-4">
-              {values.map((value, index) => (
-                <div 
-                  key={index}
-                  className={`glass-card p-4 text-center transition-all duration-700 delay-${400 + index * 100} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                >
-                  <div className="flex justify-center mb-2">
-                    {value.icon}
-                  </div>
-                  <h5 className="font-semibold text-gray-900 mb-1 text-sm">
-                    {value.title}
-                  </h5>
-                  <p className="text-gray-600 text-xs">
-                    {value.description}
-                  </p>
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-20 items-start mb-20">
+          
+          {/* Left Column - Services */}
+          <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-8">Service</h3>
+                <div className="space-y-6">
+                  {services.map((service, index) => (
+                    <div 
+                      key={index}
+                      className="service-card group"
+                    >
+                      <div className="flex items-start space-x-4">
+                        <div className="service-icon bg-gray-100 group-hover:bg-gray-200">
+                          {service.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                            {service.title}
+                          </h4>
+                          <p className="text-gray-600 mb-4 leading-relaxed">
+                            {service.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {service.features.map((feature, featureIndex) => (
+                              <span key={featureIndex} className="badge-primary text-xs">
+                                {feature}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
           
+          {/* Right Column - Skills & Values */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className={`card card-hover p-8 text-center transition-all duration-700 delay-${600 + index * 100} ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-                >
-                  <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
-                    {feature.icon}
-                  </div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                    {feature.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
+            <div className="space-y-12">
+              
+              {/* Tech Skills */}
+              <div className="card-elevated p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Technical Skills</h3>
+                <div className="space-y-4">
+                  {techStack.map((tech, index) => (
+                    <div key={tech.name} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="font-medium text-gray-700">{tech.name}</span>
+                        <span className="text-sm text-gray-500 font-medium">{tech.level}%</span>
+                      </div>
+                      <div className="progress-bar">
+                        <div 
+                          className={`progress-fill ${tech.color}`}
+                          style={{ width: isVisible ? `${tech.level}%` : '0%' }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Values & Approach */}
+              <div className="card-elevated p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Values & Approach</h3>
+                <div className="space-y-4">
+                  {values.map((value, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 leading-relaxed">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="card-elevated p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Experience</h3>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent mb-2">3+</div>
+                    <div className="text-sm text-gray-600">Years Experience</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent mb-2">50+</div>
+                    <div className="text-sm text-gray-600">Projects</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent mb-2">10+</div>
+                    <div className="text-sm text-gray-600">Technologies</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent mb-2">100%</div>
+                    <div className="text-sm text-gray-600">Client Satisfaction</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className={`transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="glass-card p-8 rounded-3xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold gradient-text mb-2">3+</div>
-                <div className="text-gray-600">年の経験</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold gradient-text mb-2">50+</div>
-                <div className="text-gray-600">プロジェクト</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold gradient-text mb-2">10+</div>
-                <div className="text-gray-600">技術スタック</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold gradient-text mb-2">100%</div>
-                <div className="text-gray-600">情熱</div>
-              </div>
+        {/* Call to Action */}
+        <div className={`text-center transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="card-elevated p-12 max-w-4xl mx-auto">
+            <h3 className="text-3xl font-semibold text-gray-900 mb-4">
+              プロジェクトのご相談はいつでもお気軽に
+            </h3>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+              あなたのアイデアを形にするお手伝いをさせていただきます。
+              まずはお気軽にご相談ください。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="mailto:your.email@example.com"
+                className="btn-primary btn-lg group"
+              >
+                お問い合わせ
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a 
+                href="/resume.pdf"
+                download
+                className="btn-secondary btn-lg"
+              >
+                履歴書をダウンロード
+              </a>
             </div>
           </div>
         </div>
